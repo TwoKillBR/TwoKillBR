@@ -16,6 +16,16 @@ int main() {
    media = media / 5;
 
    cout << "Media de gastos : " << media << endl;
+
+   for (int i = 0; i < 5; i++){
+      if (gastofamilia[i] < media){
+        cout << "A familia " << i+1 << " tem gastos abaixo da media" << endl;
+      } else if (gastofamilia[i] == media){
+        cout << "A familia " << i+1 << " tem gastos na media" << endl;
+      } else {
+        cout << "A familia " << i+1 << " tem gastos acima da media" << endl;
+      }
+   }
     
    return 0; 
 }
