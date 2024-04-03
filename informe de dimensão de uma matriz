@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+int main() {
+
+    int linha, coluna;
+    cout << "Qual e a quantidade de linhas\n";
+    cin >> linha;
+    cout << "Qual e a quantidade de colunas\n";
+    cin >> coluna;
+
+    float matriz1[linha][coluna], matriz2[linha][coluna];
+    cout << "Digite abaixo os elementos da matriz 1:\n";
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+            cout << "Digite o elemento da linha " << i + 1 << " coluna " << j + 1 << endl;
+            cin >> matriz1[i][j];
+        }
+    }
+
+    cout << "Digite abaixo os elementos da matriz 2:\n";
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+            cout << "Digite o elemento da linha " << i + 1 << " coluna " << j + 1 << endl;
+            cin >> matriz2[i][j];
+        }
+    }
+    float matrizSoma[linha][coluna];
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+            matrizSoma[i][j] = matriz1[i][j] + matriz2[i][j];
+        }
+    }
+
+    cout << "A soma entre estas duas matrizes é: \n";
+
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+            cout << matrizSoma[i][j]; " ";
+        }
+        cout << endl;
+    }
+
+
+
+    return 0;
+}
