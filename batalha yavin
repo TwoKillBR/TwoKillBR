@@ -1,0 +1,44 @@
+#include <iostream>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+void hasEnemy(vector<vector<int>>& matrix, int x, int y, set<pair<int, int>>& pairs) {
+    for (int j = x; j >= 0; --j) {
+        if (matrix[j][y] == 1) {
+            matrix[j][y] = 0;
+            pairs.insert(make_pair(j, y));
+            break;
+        }
+    }
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    vector<vector<int>> matrix(n, vector<int>(n));
+    vector<int> list(m * 2);
+    set<pair<int, int>> pairs;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    for (int i = 0; i < m * 2; ++i) {
+        cin >> list[i];
+    }
+
+    for (int l = 0; l < m * 2; l += 2) {
+        int x = list[l];
+        int y = list[l + 1];
+        hasEnemy(matrix, x, y, pairs);
+    }
+
+    cout << pairs.size() << endl;
+
+    return 0;
+}
