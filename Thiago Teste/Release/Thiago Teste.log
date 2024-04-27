@@ -1,0 +1,26 @@
+﻿  Thiago Teste.cpp
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(10,25): error C2131: a expressão não foi avaliada como uma constante
+  C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(10,25):
+  falha causada por uma leitura de uma variável fora de seu tempo de vida
+  C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(10,25):
+  consulte uso de 'height'
+  
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(11,42): warning C4552: '>>': o resultado da expressão não é usado
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(16,36): error C2131: a expressão não foi avaliada como uma constante
+  C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(16,36):
+  falha causada por uma leitura de uma variável fora de seu tempo de vida
+  C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(16,36):
+  consulte uso de 'height'
+  
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(16,44): error C2131: a expressão não foi avaliada como uma constante
+  C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(16,44):
+  falha causada por uma leitura de uma variável fora de seu tempo de vida
+  C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(16,44):
+  consulte uso de 'width'
+  
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(26,58): error C2050: expressão de switch não integral
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(46,105): error C3863: o tipo de matriz 'std::string [height]' não é atribuível
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(48,44): error C3863: o tipo de matriz 'std::string [height]' não é atribuível
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(49,53): error C3863: o tipo de matriz 'std::string [height]' não é atribuível
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(50,53): error C3863: o tipo de matriz 'bool [height][width]' não é atribuível
+C:\Users\thiag\source\repos\Thiago Teste\Thiago Teste\Thiago Teste.cpp(61,33): warning C4552: '<<': o resultado da expressão não é usado
