@@ -1,0 +1,180 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <thread>
+#include <chrono>
+#include <vector>
+#include <conio.h>
+#include <string>
+
+using namespace std;
+
+const int width = 50;
+const int height = 20;
+
+class SnakeGame {
+private:
+    bool gameOver;
+    int x, y, fruitX, fruitY, score;
+    vector<int> tailX, tailY;
+    enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
+    eDirection dir;
+    bool ateFruit;
+
+public:
+    SnakeGame() {
+        gameOver = false;
+        dir = STOP;
+        x = width / 2;
+        y = height / 2;
+        fruitX = rand() % width;
+        fruitY = rand() % height;
+        score = 0;
+        ateFruit = false;
+    }
+
+    void Draw() {
+        // Limpa apenas a área da tela que precisa ser atualizada
+        cout << "\033[2J\033[1;1H"; // Limpa a tela
+
+        for (int i = 0; i < width + 2; i++)
+            cout << "\033[1;34m*"; // Azul claro para as bordas
+        cout << endl;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (j == 0)
+                    cout << "\033[1;34m*"; // Azul claro para as bordas
+                if (i == y && j == x)
+                    cout << "\033[1;32mO"; // Verde para a cabeça da cobra
+                else if (!ateFruit && i == fruitY && j == fruitX)
+                    cout << "\033[1;31mF"; // Vermelho para a fruta
+                else {
+                    bool print = false;
+                    for (int k = 0; k < tailX.size(); k++) {
+                        if (tailX[k] == j && tailY[k] == i) {
+                            cout << "\033[1;33mo"; // Laranja para o corpo da cobra
+                            print = true;
+                        }
+                    }
+                    if (!print)
+                        cout << " ";
+                }
+
+                if (j == width - 1)
+                    cout << "\033[1;34m*"; // Azul claro para as bordas
+            }
+            cout << endl;
+        }
+
+        for (int i = 0; i < width + 2; i++)
+            cout << "\033[1;34m*"; // Azul claro para as bordas
+        cout << endl;
+        cout << "Pontuação: " << score << endl;
+    }
+
+    void Input() {
+        if (_kbhit()) {
+            switch (_getch()) {
+            case 'a':
+                if (dir != RIGHT)
+                    dir = LEFT;
+                break;
+            case 'd':
+                if (dir != LEFT)
+                    dir = RIGHT;
+                break;
+            case 'w':
+                if (dir != DOWN)
+                    dir = UP;
+                break;
+            case 's':
+                if (dir != UP)
+                    dir = DOWN;
+                break;
+            case 'x':
+                gameOver = true;
+                break;
+            }
+        }
+    }
+
+    void Logic() {
+        int prevX = tailX.empty() ? x : tailX.back();
+        int prevY = tailY.empty() ? y : tailY.back();
+        int prev2X, prev2Y;
+        tailX.push_back(x);
+        tailY.push_back(y);
+        if (tailX.size() > static_cast<size_t>(score))
+        {
+            tailX.erase(tailX.begin());
+            tailY.erase(tailY.begin());
+        }
+
+        switch (dir) {
+        case LEFT:
+            x--;
+            break;
+        case RIGHT:
+            x++;
+            break;
+        case UP:
+            y--;
+            break;
+        case DOWN:
+            y++;
+            break;
+        default:
+            break;
+        }
+
+        if (x >= width || x < 0 || y >= height || y < 0)
+            gameOver = true;
+
+        if (!ateFruit && x == fruitX && y == fruitY) {
+            score += 10;
+            ateFruit = true;
+            fruitX = rand() % width;
+            fruitY = rand() % height;
+        }
+        else {
+            ateFruit = false;
+        }
+
+        for (int i = 0; i < tailX.size(); i++) {
+            if (tailX[i] == x && tailY[i] == y)
+                gameOver = true;
+        }
+    }
+
+    void Run() {
+        string input;
+        cout << "\033[1;32m********************************" << endl;
+        cout << "** Bem-vindo ao Jogo da Cobra!**" << endl;
+        cout << "********************************" << endl;
+        cout << "Developed By: ThiagoTK & ChatGPT" << endl;
+        cout << endl;
+        cout << "Digite 'JOGAR' para jogar:" << endl;
+        cin >> input;
+        if (input != "JOGAR") {
+            cout << "Opção inválida. Digite 'JOGAR' para jogar." << endl;
+            return;
+        }
+
+        while (!gameOver) {
+            Draw();
+            Input();
+            Logic();
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+        cout << "Fim de jogo! Pontuação final: " << score << endl;
+
+    }
+};
+
+int main() {
+    srand(time(NULL));
+    SnakeGame game;
+    game.Run();
+    return 0;
+}
