@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Arquivos de Origem">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Cabeçalho">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Arquivos de Recurso">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{3091e6d2-19d3-4926-8f77-f8d6dac2d834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="testes">
+      <UniqueIdentifier>{d6d99080-6e0d-40c0-b490-5eba453d85ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Usuario.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Leilao.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Lance.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Avaliador.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="teste avaliador.cpp">
+      <Filter>testes</Filter>
+    </ClCompile>
+    <ClCompile Include="main teste.cpp">
+      <Filter>testes</Filter>
+    </ClCompile>
+    <ClCompile Include="teste leilao.cpp">
+      <Filter>testes</Filter>
+    </ClCompile>
+    <ClCompile Include="teste usuario.cpp">
+      <Filter>testes</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Usuario.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Leilao.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Lance.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Avaliador.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="catch.hpp">
+      <Filter>testes</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
